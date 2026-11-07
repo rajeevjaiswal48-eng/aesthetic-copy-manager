@@ -1,0 +1,1 @@
+# aesthetic-copy-manager
