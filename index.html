@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Copy Manager</title>
+  <link rel="manifest" href="manifest.json">
+  <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-950 via-slate-900 to-indigo-950 text-white min-h-screen flex flex-col items-center justify-center p-6 font-sans">
+
+  <div class="w-full max-w-xl bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl space-y-6">
+    <div class="text-center">
+      <h1 class="text-3xl font-extrabold bg-gradient-to-r from-teal-400 to-indigo-400 bg-clip-text text-transparent">Aesthetic File Copier</h1>
+      <p class="text-gray-400 text-sm mt-1">ChromeOS Flex File Transfer Utility</p>
+    </div>
+
+    <!-- Target Folders selection -->
+    <div class="grid grid-cols-2 gap-4">
+      <button id="btnSource" class="bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl transition text-center focus:outline-none">
+        <span class="block text-xs text-teal-400 font-semibold uppercase tracking-wider">Source Folder</span>
+        <span id="sourceLabel" class="text-sm block mt-1 truncate text-gray-300">Click to choose...</span>
+      </button>
+      <button id="btnDest" class="bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl transition text-center focus:outline-none">
+        <span class="block text-xs text-indigo-400 font-semibold uppercase tracking-wider">Destination Folder</span>
+        <span id="destLabel" class="text-sm block mt-1 truncate text-gray-300">Click to choose...</span>
+      </button>
+    </div>
+
+    <!-- File View Area -->
+    <div class="bg-black/30 rounded-xl p-4 min-h-[120px] max-h-[180px] overflow-y-auto border border-white/5 text-sm text-gray-400 space-y-1" id="fileList">
+      Select folders and press <kbd class="px-1.5 py-0.5 bg-white/10 rounded text-xs text-white">Ctrl+C</kbd> on files or <kbd class="px-1.5 py-0.5 bg-white/10 rounded text-xs text-white">Ctrl+V</kbd> inside to paste.
+    </div>
+
+    <!-- Interactive Progress Panel -->
+    <div id="progressPanel" class="hidden space-y-3 bg-white/5 border border-white/10 rounded-xl p-4">
+      <div class="flex justify-between items-center text-xs text-gray-300">
+        <span id="transferStatus" class="font-medium truncate max-w-[70%]">Copying file...</span>
+        <span id="transferPercent" class="font-mono text-teal-400 font-bold">0%</span>
+      </div>
+      
+      <!-- Progress Bar Track -->
+      <div class="w-full bg-white/10 h-2.5 rounded-full overflow-hidden">
+        <div id="progressBar" class="bg-gradient-to-r from-teal-400 to-indigo-500 h-full w-0 transition-all duration-200"></div>
+      </div>
+
+      <!-- Real-time Stats Grid -->
+      <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-white/5 text-gray-400">
+        <div>Speed: <span id="transferSpeed" class="text-white font-mono font-medium">0 MB/s</span></div>
+        <div class="text-right">Time Left: <span id="transferETA" class="text-white font-mono font-medium">--</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

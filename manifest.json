@@ -1,0 +1,16 @@
+{
+  "short_name": "Aesthetic Copy",
+  "name": "Aesthetic File Copier",
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "display": "standalone",
+  "orientation": "portrait-primary"
+}
